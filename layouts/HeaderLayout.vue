@@ -1,6 +1,12 @@
 <template>
-  <header class="flex items-center justify-between px-8 py-4">
-    <nuxt-link class="text-lg font-bold" to="/" data-no-blobity>YJA</nuxt-link>
+  <header class="z-50 flex items-center justify-between bg-white px-8 py-4">
+    <nuxt-link
+      class="text-lg font-bold"
+      to="/"
+      data-no-blobity
+      no-underline-effect
+      >YJA</nuxt-link
+    >
     <nav
       class="flex max-md:fixed max-md:inset-0 max-md:-z-10 max-md:w-full max-md:flex-col max-md:gap-8 max-md:bg-white max-md:px-8 max-md:pt-[76px] md:space-x-3"
       :class="{
