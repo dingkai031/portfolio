@@ -92,7 +92,7 @@
 </template>
 <script setup>
   import MainLayout from "@/layouts/MainLayout.vue";
-  import useBlobity from "blobity/lib/vue/useBlobity";
+  import Blobity from "blobity";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { onMounted } from "vue";
@@ -103,6 +103,20 @@
 
   onMounted(() => {
     console.log(window.innerWidth);
+
+    const options = {
+      licenseKey: "opensource",
+      kineticMorphing: false,
+      color: "rgb(0, 0, 0)",
+      opacity: 0.4,
+      dotSize: 9,
+      dotColor: "#000000",
+      focusableElements: "no-focus",
+      magnetic: false,
+      fontColor: "#ffffff",
+      zIndex: 50,
+    };
+    new Blobity(options);
     gsapTl
       .fromTo(
         "#about-1",
@@ -124,19 +138,6 @@
       scrub: true,
       anticipatePin: 1,
     });
-  });
-
-  useBlobity({
-    licenseKey: "opensource",
-    kineticMorphing: false,
-    color: "rgb(0, 0, 0)",
-    opacity: 0.4,
-    dotSize: 9,
-    dotColor: "#000000",
-    focusableElements: "no-focus",
-    magnetic: false,
-    fontColor: "#ffffff",
-    zIndex: 50,
   });
 </script>
 <style lang=""></style>
