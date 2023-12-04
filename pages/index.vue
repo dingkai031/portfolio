@@ -11,15 +11,21 @@
           src="/img/hero-background.jpg"
           alt="white cloth"
         />
-        <div class="text-4xl font-bold uppercase antialiased md:text-6xl">
+        <div
+          class="background-title overflow-hidden text-4xl font-bold uppercase antialiased md:text-6xl"
+        >
           <h1>Hey, I'm Yovan</h1>
         </div>
-        <div class="text-4xl font-bold uppercase antialiased md:text-6xl">
+        <div
+          class="background-title overflow-hidden text-4xl font-bold uppercase antialiased md:text-6xl"
+        >
           <h1 class="text-transparent" style="-webkit-text-stroke: 2px black">
             Hey, I'm Yovan
           </h1>
         </div>
-        <div class="text-4xl font-bold uppercase antialiased md:text-6xl">
+        <div
+          class="background-title overflow-hidden text-4xl font-bold uppercase antialiased md:text-6xl"
+        >
           <h1>Hey, I'm Yovan</h1>
         </div>
       </div>
@@ -44,37 +50,33 @@
     </section>
     <section class="flex min-h-screen px-8" id="about">
       <div class="grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-        <NuxtImg
-          src="/img/about-me.jpg"
-          class="max-h-60 w-full rounded-md object-cover md:max-h-screen md:object-center"
-        />
+        <div class="p-4">
+          <NuxtImg
+            src="/img/about-me.jpg"
+            class="max-h-60 w-full rounded-md object-cover md:max-h-screen md:object-center"
+          />
+        </div>
         <div
           class="flex items-center overflow-hidden border-2 border-black p-8"
         >
-          <div id="about-1" class="w-">
+          <div id="about-1">
             <h2 class="mb-3 font-bold md:text-5xl">About Yovan</h2>
             <p class="mb-3 md:text-2xl">
               Oh, you've got to meet Yovan! He's an incredible full-stack web
               developer with two years of solid experience in PHP and
               JavaScript. His thing is creating these amazing websites that are
               not only super responsive but also right on trend with the latest
-              technologies. They're always on top of the game, bringing fresh
-              and innovative ideas to the table. Seriously, their dedication to
-              making user-friendly online experiences is next level—they're like
-              the go-to person if you want your website to stand out and shine!
+              technologies.
+            </p>
+            <p class="mb-3 md:text-2xl">
+              They're always on top of the game, bringing fresh and innovative
+              ideas to the table. Seriously, their dedication to making
+              user-friendly online experiences is next level—they're like the
+              go-to person if you want your website to stand out and shine!
             </p>
           </div>
           <div id="about-2">
-            <h2 class="mb-3 font-bold md:text-5xl">About him</h2>
-            <p class="mb-3 md:text-2xl">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
-              facilis nobis quas molestiae repellendus optio ipsum assumenda,
-              totam ex est, id quidem. Ut suscipit tempora debitis expedita ab
-              esse cum quasi corporis consequatur quod, omnis alias aliquam aut
-              cumque labore rem illum facilis quo veniam nemo non minus quos!
-              Molestias a reprehenderit harum iusto reiciendis deserunt dolorum
-              officia.
-            </p>
+            <h2 class="mb-3 font-bold md:text-5xl">Yovan expertises</h2>
             <p class="mb-3 md:text-2xl">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
               facilis nobis quas molestiae repellendus optio ipsum assumenda,
@@ -102,8 +104,6 @@
   const gsapTl = gsap.timeline();
 
   onMounted(() => {
-    console.log(window.innerWidth);
-
     const options = {
       licenseKey: "opensource",
       kineticMorphing: false,
@@ -117,6 +117,23 @@
       zIndex: 50,
     };
     new Blobity(options);
+
+    const bgTitles = gsap.utils.toArray(".background-title h1");
+    bgTitles.forEach((bgTitle) => {
+      gsap.fromTo(
+        bgTitle,
+        {
+          yPercent: 100,
+        },
+        {
+          yPercent: 0,
+          delay: 0.5,
+          ease: "steps(9)",
+          duration: 3,
+        }
+      );
+    });
+
     gsapTl
       .fromTo(
         "#about-1",
