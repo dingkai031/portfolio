@@ -25,11 +25,11 @@
       required: false,
       default: 50,
     },
+    opened: {
+      type: Boolean,
+      required: true,
+    },
   });
-  const opened = ref(false);
-  function openMenu() {
-    opened.value = !opened.value;
-  }
 </script>
 <style lang="css">
   .menu {

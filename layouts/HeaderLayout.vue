@@ -1,20 +1,24 @@
 <template>
-  <header class="z-50 flex items-center justify-between bg-white px-8 py-4">
+  <header
+    class="z-50 flex items-center justify-between px-8 py-4"
+    :class="{ 'bg-glass': !opened }"
+  >
     <nuxt-link
-      class="text-lg font-bold"
+      class="border-2 border-black p-1 text-lg font-extrabold"
       to="/"
       data-no-blobity
       no-underline-effect
       >YJA</nuxt-link
     >
     <nav
-      class="flex max-md:fixed max-md:inset-0 max-md:-z-10 max-md:w-full max-md:flex-col max-md:gap-8 max-md:bg-white max-md:px-8 max-md:pt-[76px] md:space-x-3"
+      class="flex max-md:fixed max-md:inset-0 max-md:-z-10 max-md:w-full max-md:flex-col max-md:gap-8 max-md:px-8 max-md:pt-[76px] md:space-x-3"
       :class="{
         'max-md:hidden': !opened,
+        'bg-glass': opened,
       }"
     >
       <div class="flex items-center">
-        <nuxt-link class="max-md:text-6xl" :to="{ path: '/', hash: '#section' }"
+        <nuxt-link class="max-md:text-6xl" :to="{ path: '/', hash: '#about' }"
           >about.</nuxt-link
         >
       </div>
@@ -41,6 +45,7 @@
       class="flex md:hidden"
       @click="toggleOpen"
       :size="40"
+      :opened="opened"
     />
   </header>
 </template>
@@ -48,9 +53,17 @@
   import HamburgerIcon from "~/components/HamburgerIcon.vue";
 
   const opened = ref(false);
-
+  const animating = ref(false);
+  const animatingTimeout = ref(null);
   function toggleOpen() {
-    opened.value = !opened.value;
+    if (!animating.value) {
+      animating.value = true;
+      opened.value = !opened.value;
+      animatingTimeout.value = setTimeout(() => {
+        animating.value = false;
+        clearTimeout(animatingTimeout.value);
+      }, 601);
+    }
   }
 </script>
 <style lang=""></style>
