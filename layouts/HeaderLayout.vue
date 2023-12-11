@@ -18,7 +18,7 @@
       }"
     >
       <div class="flex items-center">
-        <nuxt-link class="max-md:text-6xl" :to="{ path: '/', hash: '#about' }"
+        <nuxt-link class="max-md:text-6xl" @click="customScrollTo('#about')"
           >about.</nuxt-link
         >
       </div>
@@ -51,10 +51,18 @@
 </template>
 <script setup>
   import HamburgerIcon from "~/components/HamburgerIcon.vue";
+  import { gsap } from "gsap";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  gsap.registerPlugin(ScrollToPlugin);
 
   const opened = ref(false);
   const animating = ref(false);
   const animatingTimeout = ref(null);
+
+  function customScrollTo(elmId) {
+    if (opened.value) opened.value = false;
+    gsap.to(window, { duration: 1.5, scrollTo: elmId, ease: "power3.inOut" });
+  }
   function toggleOpen() {
     if (!animating.value) {
       animating.value = true;

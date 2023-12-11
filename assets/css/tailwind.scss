@@ -48,6 +48,10 @@ section {
   }
 }
 
+.header-spacing {
+  padding-top: 76px !important;
+}
+
 a {
   &:not([no-underline-effect]) {
     @apply relative no-underline;

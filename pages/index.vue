@@ -1,4 +1,5 @@
 <template>
+  <LoadingIndicator @loaded="isPageLoaded" />
   <main-layout class="overflow-hidden">
     <section
       class="flex min-h-screen flex-col items-end px-8 pb-6 max-md:justify-between"
@@ -48,28 +49,34 @@
         </div>
       </div>
     </section>
-    <section class="flex min-h-screen px-8" id="about">
-      <div class="grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-        <div class="p-4">
+    <section
+      class="header-spacing flex p-8 md:min-h-[calc(100vh-76px)]"
+      id="about"
+    >
+      <div class="grid- grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+        <div class="max-md:order-2 md:py-4">
           <NuxtImg
             src="/img/about-me.jpg"
-            class="max-h-60 w-full rounded-md object-cover md:max-h-screen md:object-center"
+            class="max-h-52 w-full rounded-md object-cover md:max-h-[calc(100vh-76px)] md:object-center"
           />
         </div>
-        <div class="flex p-4">
+        <div class="flex pt-4 max-md:order-1 md:py-4">
           <div
-            class="flex h-full w-full items-center overflow-hidden border-2 border-black p-8"
+            class="relative grid w-full overflow-hidden border-2 border-black p-4 lg:h-full lg:p-8"
+            id="main-about-wrapper"
           >
             <div id="about-1">
-              <h2 class="mb-3 font-bold md:text-5xl">About Yovan</h2>
-              <p class="mb-3 md:text-2xl">
+              <h2 class="mb-3 text-xl font-bold md:text-3xl xl:text-5xl">
+                About Yovan
+              </h2>
+              <p class="mb-3 md:text-lg xl:text-2xl">
                 Oh, you've got to meet Yovan! He's an incredible full-stack web
                 developer with two years of solid experience in PHP and
                 JavaScript. His thing is creating these amazing websites that
                 are not only super responsive but also right on trend with the
                 latest technologies.
               </p>
-              <p class="md:text-2xl">
+              <p class="md:text-lg xl:text-2xl">
                 Yovan is always on top of the game, bringing fresh and
                 innovative ideas to the table. Seriously, his dedication to
                 making user-friendly online experiences is next level—he is like
@@ -78,44 +85,47 @@
               </p>
             </div>
             <div id="about-2">
-              <h2 class="mb-3 font-bold md:text-5xl">Yovan's expertises</h2>
-              <p class="mb-3 md:text-2xl">
+              <h2 class="mb-3 text-xl font-bold md:text-3xl xl:text-5xl">
+                Yovan's expertises
+              </h2>
+              <p class="mb-3 md:text-lg xl:text-2xl">
                 He craft captivating interfaces with HTML, CSS, and JavaScript.
                 His mastery in PHP, Node.js, and databases ensures robust
                 architectures. As a full-stack developer, he seamlessly merge
                 frontend finesse with backend functionality, delivering
                 innovative solutions. He's expert in the following field :
               </p>
-              <ul class="list-inside list-disc space-y-1 md:text-2xl">
+              <ul
+                class="list-inside list-disc space-y-1 md:text-lg xl:text-2xl"
+              >
                 <li>Frontend Development</li>
                 <li>Backend Development</li>
                 <li>Full-stack Development</li>
               </ul>
             </div>
             <div id="about-3">
-              <h2 class="mb-6 font-bold md:text-5xl">
+              <h2 class="mb-3 text-xl font-bold md:text-3xl xl:text-5xl">
                 Yovan's digital toolbox
               </h2>
               <div class="mb-6">
-                <p class="mb-3 md:text-2xl">
+                <p class="mb-3 md:text-lg xl:text-2xl">
                   When it comes to digital tools, Yovan is the maestro—whether
                   it's navigating through the intricacies of JavaScript
                   development, effortlessly crafting stunning and responsive
                   interfaces with:
                 </p>
-                <ul class="mb-3 flex gap-3">
+                <ul class="mb-3 flex flex-wrap gap-3">
                   <li v-for="tool in frontEndDigitalToolbox">
                     <Icon
-                      class="tooltips-blobity text-black transition-colors duration-300 ease-in-out"
+                      class="tooltips-blobity h-6 w-6 text-black transition-colors duration-300 ease-in-out lg:h-10 lg:w-10"
                       :class="tool.class"
                       :name="tool.iconName"
-                      size="2.5rem"
                       :data-blobity-tooltip="tool.name"
                     />
                   </li>
                 </ul>
               </div>
-              <p class="mb-3 md:text-2xl">
+              <p class="mb-3 md:text-lg xl:text-2xl">
                 He is also expert in crafting scalable server-side applications
                 using:
               </p>
@@ -139,6 +149,7 @@
 </template>
 <script setup>
   import MainLayout from "@/layouts/MainLayout.vue";
+  import LoadingIndicator from "~/components/LoadingIndicator.vue";
   import Lenis from "@studio-freight/lenis";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -147,67 +158,39 @@
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: "none" });
   const gsapTl = gsap.timeline();
+  gsap.ticker.lagSmoothing(0);
 
   onMounted(() => {
     const lenis = new Lenis();
-
     lenis.on("scroll", ScrollTrigger.update);
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    const bgTitles = gsap.utils.toArray(".background-title h1");
-    bgTitles.forEach((bgTitle) => {
-      gsap.fromTo(
-        bgTitle,
-        {
-          yPercent: 100,
-        },
-        {
-          yPercent: 0,
-          delay: 0.5,
-          ease: "steps(9)",
-        }
-      );
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
     });
-
     gsapTl
-      .fromTo(
-        "#about-1",
-        { opacity: 1, xPercent: 0 },
-        { opacity: 0, xPercent: -50, display: "none" }
-      )
-      .fromTo(
-        "#about-2",
-        { opacity: 0, display: "none", xPercent: 50 },
-        { opacity: 1, display: "block", xPercent: 0 }
-      )
-      .fromTo(
-        "#about-2",
-        { opacity: 1, display: "block", xPercent: 0 },
-        { opacity: 0, display: "none", xPercent: -50 }
-      )
-      .fromTo(
-        "#about-3",
-        { opacity: 0, display: "none", xPercent: 50 },
-        { opacity: 1, display: "block", xPercent: 0 }
-      );
-
+      .to("#about-1", {
+        opacity: 0,
+        xPercent: -100,
+      })
+      .from("#about-2", {
+        opacity: 0,
+        xPercent: 100,
+      })
+      .to("#about-2", {
+        opacity: 0,
+        xPercent: -100,
+      })
+      .from("#about-3", {
+        opacity: 0,
+        xPercent: 100,
+      });
     ScrollTrigger.create({
       animation: gsapTl,
       trigger: "#about",
       start: "top top",
-      end: "bottom top",
       pin: true,
       scrub: true,
-      anticipatePin: 1,
-      snap: {
-        snapTo: 0.5,
-      },
+      pinSpacing: true,
+      snap: [0, 0.5, 1],
     });
   });
 
@@ -286,5 +269,28 @@
       class: "",
     },
   ];
+
+  function isPageLoaded() {
+    const bgTitles = gsap.utils.toArray(".background-title h1");
+    bgTitles.forEach((bgTitle) => {
+      gsap.fromTo(
+        bgTitle,
+        {
+          yPercent: 100,
+        },
+        {
+          yPercent: 0,
+          delay: 0.5,
+          ease: "steps(9)",
+        }
+      );
+    });
+  }
 </script>
-<style lang=""></style>
+<style lang="scss">
+  #main-about-wrapper {
+    > * {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+</style>
