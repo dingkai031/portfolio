@@ -50,7 +50,7 @@
       </div>
     </section>
     <section
-      class="header-spacing flex p-8 md:min-h-[calc(100vh-76px)]"
+      class="header-spacing flex px-4 py-8 md:min-h-[calc(100vh-76px)]"
       id="about"
     >
       <div class="grid- grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
@@ -60,7 +60,7 @@
             class="max-h-52 w-full rounded-md object-cover md:max-h-[calc(100vh-76px)] md:object-center"
           />
         </div>
-        <div class="flex pt-4 max-md:order-1 md:py-4">
+        <div class="flex pt-1 max-md:order-1 md:py-4">
           <div
             class="relative grid w-full overflow-hidden border-2 border-black p-4 lg:h-full lg:p-8"
             id="main-about-wrapper"
@@ -129,13 +129,12 @@
                 He is also expert in crafting scalable server-side applications
                 using:
               </p>
-              <ul class="flex gap-3">
+              <ul class="flex flex-wrap gap-3">
                 <li v-for="tool in backEndDigitalToolbox">
                   <Icon
-                    class="tooltips-blobity text-black transition-colors duration-300 ease-in-out"
+                    class="tooltips-blobity h-6 w-6 text-black transition-colors duration-300 ease-in-out lg:h-10 lg:w-10"
                     :class="tool.class"
                     :name="tool.iconName"
-                    size="2.5rem"
                     :data-blobity-tooltip="tool.name"
                   />
                 </li>
