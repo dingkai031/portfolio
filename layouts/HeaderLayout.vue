@@ -23,7 +23,7 @@
         >
       </div>
       <div class="flex items-center">
-        <nuxt-link class="max-md:text-6xl" :to="{ path: '/', hash: '#section' }"
+        <nuxt-link class="max-md:text-6xl" @click="customScrollTo('#works')"
           >works.</nuxt-link
         >
       </div>

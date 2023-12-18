@@ -50,7 +50,7 @@
       </div>
     </section>
     <section
-      class="header-spacing flex px-4 py-8 md:min-h-[calc(100vh-76px)]"
+      class="header-spacing px-4 pt-8 md:min-h-[calc(100vh-76px)]"
       id="about"
     >
       <div class="grid- grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
@@ -140,6 +140,108 @@
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="header-spacing px-4 py-8 md:min-h-[calc(100vh-76px)]"
+      id="works"
+    >
+      <h2 class="mb-6 text-center text-xl font-bold md:text-3xl xl:text-5xl">
+        Yovan's works (WORK IN PROGGRESS)
+      </h2>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div class="grid gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              class="h-auto max-w-full rounded-lg"
+              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+              alt=""
+            />
           </div>
         </div>
       </div>
