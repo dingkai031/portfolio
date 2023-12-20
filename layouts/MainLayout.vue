@@ -1,7 +1,7 @@
 <template>
   <div class="flex min-h-screen flex-col">
     <HeaderLayout class="fixed top-0 w-full" />
-    <main class="flex-1">
+    <main class="flex-1 pb-8">
       <slot> </slot>
     </main>
     <FooterLayout />

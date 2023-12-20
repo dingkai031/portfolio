@@ -42,22 +42,17 @@
   }
 }
 
-section {
-  &:first-child {
-    @apply pt-[76px];
-  }
-}
-
 .header-spacing {
   padding-top: 76px !important;
 }
 
-a {
+a,
+.underline-effect {
   &:not([no-underline-effect]) {
     @apply relative no-underline;
 
     &::before {
-      @apply absolute bottom-0 left-0 h-1 w-full origin-left rounded bg-black;
+      @apply absolute bottom-0 right-0 h-1 w-full origin-right rounded bg-black;
       content: "";
       transform: scaleX(0);
       transition: transform 0.3s ease-in-out;
@@ -65,7 +60,7 @@ a {
 
     &:hover {
       &::before {
-        @apply origin-right;
+        @apply origin-left;
         transform: scaleX(1);
       }
     }

@@ -1,6 +1,13 @@
 <template>
-  <footer class="text-center text-3xl">
-    <div class="p-8">this is footer</div>
+  <footer class="bg-black px-4 py-8 text-center text-white max-md:text-xs">
+    <div
+      class="flex items-center justify-between max-md:flex-col max-md:gap-y-4"
+    >
+      <p class="font-general-sans tracking-widest">
+        © Yovan Julio Adam - All rights reserved.
+      </p>
+      <p>Made with love <Icon name="fe:heart" class="mx-1" /></p>
+    </div>
   </footer>
 </template>
 <script>

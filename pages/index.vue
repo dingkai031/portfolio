@@ -41,26 +41,21 @@
             <div class="md:text-end">
               <p class="text-xl tracking-widest md:mb-6 md:text-2xl">I'm a</p>
               <h1 class="text-3xl font-bold md:mb-6 md:text-5xl">Full-stack</h1>
-              <h1 class="text-3xl font-bold md:mb-6 md:text-5xl">
-                Web Developer
-              </h1>
+              <h1 class="text-3xl font-bold md:text-5xl">Web Developer</h1>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section
-      class="header-spacing px-4 pt-8 md:min-h-[calc(100vh-76px)]"
-      id="about"
-    >
+    <section class="header-spacing px-4 pt-8 md:min-h-screen" id="about">
       <div class="grid- grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
-        <div class="max-md:order-2 md:py-4">
+        <div class="max-md:order-2">
           <NuxtImg
             src="/img/about-me.jpg"
             class="max-h-52 w-full rounded-md object-cover md:max-h-[calc(100vh-76px)] md:object-center"
           />
         </div>
-        <div class="flex pt-1 max-md:order-1 md:py-4">
+        <div class="flex max-md:order-1">
           <div
             class="relative grid w-full overflow-hidden border-2 border-black p-4 lg:h-full lg:p-8"
             id="main-about-wrapper"
@@ -144,10 +139,7 @@
         </div>
       </div>
     </section>
-    <section
-      class="header-spacing px-4 py-8 md:min-h-[calc(100vh-76px)]"
-      id="works"
-    >
+    <section class="header-spacing px-4 pt-8 md:min-h-screen" id="works">
       <h2 class="mb-6 text-center text-xl font-bold md:text-3xl xl:text-5xl">
         Yovan's works (WORK IN PROGGRESS)
       </h2>
@@ -246,15 +238,149 @@
         </div>
       </div>
     </section>
+    <section class="header-spacing px-4 pt-8 md:min-h-screen" id="contact">
+      <h2
+        class="mb-6 text-center text-xl font-bold md:mb-10 md:text-3xl xl:text-5xl"
+      >
+        Yovan's Contact
+      </h2>
+      <div class="flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
+        <div class="col-span-4">
+          <div class="mb-6">
+            <p
+              class="text-heading-contact max-w-lg font-semibold leading-tight 2xl:max-w-3xl 2xl:text-7xl"
+            >
+              Have an awesome idea?
+            </p>
+            <p
+              class="text-heading-contact max-w-lg font-semibold leading-tight 2xl:max-w-3xl 2xl:text-7xl"
+            >
+              Let's bring it to life.
+            </p>
+          </div>
+          <form @submit.prevent="console.log('submit')" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
+            <div class="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2">
+              <div class="relative z-0">
+                <input
+                  required=""
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="border-accent-100 peer block w-full appearance-none border-b border-black bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
+                  placeholder=" "
+                /><label
+                  for="name"
+                  class="text-body-3 2xl:text-body-2 text-secondary-600 absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
+                  >Your name</label
+                >
+              </div>
+              <div class="relative z-0">
+                <input
+                  required=""
+                  type="text"
+                  name="email"
+                  id="email"
+                  class="border-accent-100 peer block w-full appearance-none border-b border-black bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
+                  placeholder=" "
+                /><label
+                  for="email"
+                  class="2xl:text-body-2 text-secondary-600 absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
+                  >Your email</label
+                >
+              </div>
+              <div class="relative z-0 sm:col-span-2">
+                <textarea
+                  required=""
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="border-accent-100 peer block w-full appearance-none border-b border-black bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
+                  placeholder=" "
+                ></textarea
+                ><label
+                  for="message"
+                  class="text-body-3 2xl:text-body-2 text-secondary-600 absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
+                  >Your message</label
+                >
+              </div>
+            </div>
+            <CustomButton class="mt-10" text="Send Message" type="submit" />
+          </form>
+        </div>
+        <div
+          class="text-accent-300 col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1"
+        >
+          <div class="space-y-3">
+            <h4 class="text-body-1 font-semibold 2xl:text-4xl">
+              Contact Details
+            </h4>
+            <div class="text-body-2 flex flex-col space-y-3 2xl:text-3xl">
+              <a
+                no-underline-effect
+                :href="`mailto:${email}`"
+                class="group relative w-fit cursor-pointer"
+                target="_blank"
+                rel="noreferrer"
+                ><span>{{ email }}</span
+                ><span
+                  class="bg-secondary-600 absolute bottom-0 left-0 h-[0.12em] w-0 rounded-full duration-300 ease-in-out group-hover:w-full"
+                ></span
+              ></a>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <h4 class="text-body-1 font-semibold 2xl:text-4xl">
+              My Digital Spaces
+            </h4>
+            <div class="text-body-2 space-y-3 2xl:text-3xl">
+              <nuxt-link
+                class="group flex items-center space-x-2"
+                no-underline-effect
+                v-for="(social, index) in socials"
+                :key="index"
+                :to="social.link"
+                target="_blank"
+              >
+                <Icon :name="social.logo" />
+                <div class="relative">
+                  <span class="underline-effect">{{ social.name }}</span
+                  ><span
+                    class="bg-secondary-600 absolute bottom-0 left-0 h-[0.10em] w-0 rounded-full duration-300 ease-in-out group-hover:w-full"
+                  ></span>
+                </div>
+              </nuxt-link>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <h4 class="text-body-1 font-semibold 2xl:text-4xl">Location</h4>
+            <div class="text-body-2 space-y-2 2xl:text-3xl">
+              <p>
+                {{ location }}<br /><TimeComponent
+                  class="tracking-wider"
+                  :timezone="timezone"
+                />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main-layout>
 </template>
 <script setup>
+  import { onMounted } from "vue";
   import MainLayout from "@/layouts/MainLayout.vue";
-  import LoadingIndicator from "~/components/LoadingIndicator.vue";
+  import LoadingIndicator from "@/components/LoadingIndicator.vue";
+  import CustomButton from "@/components/ButtonComponent.vue";
+  import TimeComponent from "@/components/TimeComponent.vue";
+  import pageDatas from "@/mixins/siteDatas.ts";
+
   import Lenis from "@studio-freight/lenis";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  import { onMounted } from "vue";
+
+  const { email, socials, timezone, location } = pageDatas;
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: "none" });
@@ -392,6 +518,12 @@
   #main-about-wrapper {
     > * {
       grid-area: 1 / 1 / 2 / 2;
+    }
+  }
+
+  @media only screen and (max-width: 1535px) {
+    .text-heading-contact {
+      font-size: clamp(2rem, 5vw, 2.75rem);
     }
   }
 </style>

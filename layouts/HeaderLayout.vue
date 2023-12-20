@@ -1,7 +1,7 @@
 <template>
   <header
     class="z-50 flex items-center justify-between px-8 py-4"
-    :class="{ 'bg-glass': !opened }"
+    :class="{ 'bg-white': !opened }"
   >
     <nuxt-link
       class="border-2 border-black p-1 text-lg font-extrabold"
@@ -14,7 +14,7 @@
       class="flex max-md:fixed max-md:inset-0 max-md:-z-10 max-md:w-full max-md:flex-col max-md:gap-8 max-md:px-8 max-md:pt-[76px] md:space-x-3"
       :class="{
         'max-md:hidden': !opened,
-        'bg-glass': opened,
+        'bg-white': opened,
       }"
     >
       <div class="flex items-center">
@@ -27,12 +27,7 @@
           >works.</nuxt-link
         >
       </div>
-      <nuxt-link
-        no-underline-effect
-        class="hidden rounded-full bg-black px-6 py-2 text-lg text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-black md:inline"
-        :to="{ path: '/', hash: '#section' }"
-        >contact.</nuxt-link
-      >
+      <CustomButton text="contact." @click="customScrollTo('#contact')" />
     </nav>
     <nuxt-link
       no-underline-effect
@@ -53,6 +48,8 @@
   import HamburgerIcon from "~/components/HamburgerIcon.vue";
   import { gsap } from "gsap";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  import CustomButton from "~/components/ButtonComponent.vue";
+
   gsap.registerPlugin(ScrollToPlugin);
 
   const opened = ref(false);
