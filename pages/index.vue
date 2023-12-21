@@ -143,99 +143,179 @@
       <h2 class="mb-6 text-center text-xl font-bold md:text-3xl xl:text-5xl">
         Yovan's works (WORK IN PROGGRESS)
       </h2>
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-        <div class="grid gap-4">
+      <div class="grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12">
+        <WorkComponent
+          v-for="(work, item) in works"
+          :key="item"
+          :classes="work.classes"
+          :imgDirectory="work.imgDirectory"
+          :yearStarted="work.yearStarted"
+          :projectName="work.projectName"
+          :tags="work.tags"
+          :category="work.category"
+          :link="work.link"
+          :imgAltName="work.imgAltName"
+        />
+        <!-- <div class="col-span-1 pt-0 md:col-span-7 md:pt-10">
           <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="grid gap-4">
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="grid gap-4">
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
-              alt=""
-            />
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://mementostudio.netlify.app/"
+              class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
+              ><img
+                class="w-screen duration-700 ease-in-out group-hover:scale-105"
+                src="/img/portfolio/smshub/Scene-1.jpg"
+                alt="memento landing page mockup"
+                width="800"
+                height="600"
+            /></a>
+            <div class="mt-4">
+              <div class="mb-3 flex space-x-2">
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  2023
+                </p>
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  HTML • TailwindCSS • JavaScript
+                </p>
+              </div>
+              <div class="2xl:space-y-3">
+                <h3
+                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
+                >
+                  memento studio landing page
+                </h3>
+                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
+                  Frontend Development
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="grid gap-4">
+        <div class="col-span-1 pt-0 md:col-span-5 md:pt-44">
           <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              class="h-auto max-w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
-              alt=""
-            />
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://realbusinessaccountants.netlify.app"
+              class="group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
+              ><img
+                class="w-screen duration-700 ease-in-out group-hover:scale-105"
+                src="/img/portfolio/smshub/Scene-1.jpg"
+                alt="real business accountant project mockup"
+                width="800"
+                height="600"
+            /></a>
+            <div class="mt-4">
+              <div class="mb-3 flex space-x-2">
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  2023
+                </p>
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  HTML • CSS • JavaScript • Figma
+                </p>
+              </div>
+              <div class="2xl:space-y-3">
+                <h3
+                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
+                >
+                  real business accountants
+                </h3>
+                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
+                  Web Design • Frontend Development
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="col-span-1 h-fit pt-0 md:col-span-8 md:pt-20">
+          <div>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://godaddyuiclone.netlify.app"
+              class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
+              ><img
+                class="w-screen duration-700 ease-in-out group-hover:scale-105"
+                src="/img/portfolio/smshub/Scene-1.jpg"
+                alt="godaddy clone page mockup"
+                width="800"
+                height="600"
+            /></a>
+            <div class="mt-4">
+              <div class="mb-3 flex space-x-2">
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  2023
+                </p>
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  HTML • TailwindCSS • JavaScript
+                </p>
+              </div>
+              <div class="2xl:space-y-3">
+                <h3
+                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
+                >
+                  GODADDY LANDING PAGE CLONE
+                </h3>
+                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
+                  Frontend Development
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-1 h-fit md:col-span-4">
+          <div>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://sunnysidechallenge.netlify.app"
+              class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
+              ><img
+                class="w-screen duration-700 ease-in-out group-hover:scale-105"
+                src="/img/portfolio/smshub/Scene-1.jpg"
+                alt="sunnyside project mockup"
+                width="800"
+                height="600"
+            /></a>
+            <div class="mt-4">
+              <div class="mb-3 flex space-x-2">
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  2022
+                </p>
+                <p
+                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+                >
+                  HTML • TailwindCSS • JavaScript
+                </p>
+              </div>
+              <div class="2xl:space-y-3">
+                <h3
+                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
+                >
+                  SUNNYSIDE LANDING PAGE
+                </h3>
+                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
+                  Frontend Development
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
       </div>
     </section>
     <section class="header-spacing px-4 pt-8 md:min-h-screen" id="contact">
@@ -374,13 +454,14 @@
   import LoadingIndicator from "@/components/LoadingIndicator.vue";
   import CustomButton from "@/components/ButtonComponent.vue";
   import TimeComponent from "@/components/TimeComponent.vue";
+  import WorkComponent from "~/components/WorkComponent.vue";
   import pageDatas from "@/mixins/siteDatas.ts";
 
   import Lenis from "@studio-freight/lenis";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  const { email, socials, timezone, location } = pageDatas;
+  const { email, socials, timezone, location, works } = pageDatas;
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: "none" });
@@ -525,5 +606,25 @@
     .text-heading-contact {
       font-size: clamp(2rem, 5vw, 2.75rem);
     }
+  }
+
+  .bg-gradient-works {
+    background: rgb(206, 184, 184);
+    background: -moz-linear-gradient(
+      329deg,
+      rgba(206, 184, 184, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      329deg,
+      rgba(206, 184, 184, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      329deg,
+      rgba(206, 184, 184, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ceb8b8",endColorstr="#ffffff",GradientType=1);
   }
 </style>
