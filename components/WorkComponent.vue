@@ -9,33 +9,32 @@
       >
         <video class="w-screen max-w-full" autoplay muted loop>
           <source
-            src="https://res.cloudinary.com/djsa72jl/video/upload/v1703230324/smshub_display.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://res.cloudinary.com/djsa72jl/video/upload/v1703230324/smshub_display.webm"
-            type="video/webm"
+            v-for="(video, index) in videos"
+            :key="index"
+            :src="video.link"
+            :type="video.type"
           />
         </video>
       </NuxtLink>
       <div class="mt-4">
         <div class="mb-3 flex space-x-2">
           <p
-            class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+            class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-2 py-1 text-xs md:px-4 2xl:text-xl"
           >
             {{ props.yearStarted }}
           </p>
           <p
-            class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
+            class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-2 py-1 text-xs md:px-4 2xl:text-xl"
           >
             {{ outputTags }}
           </p>
         </div>
         <div class="2xl:space-y-3">
           <h3
-            class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
+            class="text-works-title text-primary-200 flex items-center font-medium uppercase 2xl:text-5xl"
           >
             {{ props.projectName }}
+            <Icon class="ml-3" size="0.7em" name="ri:external-link-fill" />
           </h3>
           <p
             class="text-body-2 text-primary-400 font-light capitalize 2xl:text-4xl"
@@ -50,7 +49,7 @@
 <script setup>
   import { computed } from "vue";
   const props = defineProps({
-    imgDirectory: String,
+    videos: Array,
     yearStarted: Number,
     projectName: String,
     tags: Array,

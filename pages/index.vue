@@ -2,7 +2,7 @@
   <LoadingIndicator @loaded="isPageLoaded" />
   <main-layout class="overflow-hidden">
     <section
-      class="flex min-h-screen flex-col items-end px-8 pb-6 max-md:justify-between"
+      class="header-spacing flex min-h-screen flex-col items-end px-8 pb-6 max-md:justify-between"
     >
       <div
         class="relative flex w-full flex-1 flex-col justify-center gap-8 text-center"
@@ -141,20 +141,20 @@
     </section>
     <section class="header-spacing px-4 pt-8 md:min-h-screen" id="works">
       <h2 class="mb-6 text-center text-xl font-bold md:text-3xl xl:text-5xl">
-        Yovan's works (WORK IN PROGGRESS)
+        Yovan's works
       </h2>
       <div class="grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12 md:px-12">
         <WorkComponent
           v-for="(work, item) in works"
           :key="item"
           :classes="work.classes"
-          :imgDirectory="work.imgDirectory"
           :yearStarted="work.yearStarted"
           :projectName="work.projectName"
           :tags="work.tags"
           :category="work.category"
           :link="work.link"
           :imgAltName="work.imgAltName"
+          :videos="work.videos"
         />
         <!-- <div class="col-span-1 pt-0 md:col-span-7 md:pt-10">
           <div>
@@ -415,7 +415,7 @@
             </h4>
             <div class="text-body-2 space-y-3 2xl:text-3xl">
               <nuxt-link
-                class="group flex items-center space-x-2"
+                class="group flex items-center space-x-2 capitalize"
                 no-underline-effect
                 v-for="(social, index) in socials"
                 :key="index"
@@ -604,7 +604,7 @@
 
   @media only screen and (max-width: 1535px) {
     .text-heading-contact {
-      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-size: 1.5rem;
     }
   }
 
