@@ -68,7 +68,7 @@ const pageDatas: pageDataType = {
       tags: ["HTML", "Bootstrap 5", "JavaScript"],
       category: CategoryEnum.FE,
       link: "https://smshub360.com/",
-      classes: ["pt-0", "md:col-span-5", "md:pt-44"],
+      classes: ["pt-0", "md:col-span-5", "md:pt-32"],
       imgAltName: "SMShub landing page mockup",
     },
   ],

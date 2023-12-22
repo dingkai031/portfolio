@@ -143,7 +143,7 @@
       <h2 class="mb-6 text-center text-xl font-bold md:text-3xl xl:text-5xl">
         Yovan's works (WORK IN PROGGRESS)
       </h2>
-      <div class="grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12">
+      <div class="grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12 md:px-12">
         <WorkComponent
           v-for="(work, item) in works"
           :key="item"

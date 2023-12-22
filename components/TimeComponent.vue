@@ -1,29 +1,36 @@
 <template>
   <span>
-    {{ time }}
+    {{ currentTime }}
   </span>
 </template>
+
 <script setup>
-  import { onBeforeUnmount } from "vue";
-  const prop = defineProps({
+  import { ref, onBeforeUnmount, onMounted } from "vue";
+
+  const props = defineProps({
     timezone: {
       type: String,
       required: true,
     },
   });
-  const time = ref(null);
-  setTime();
-  const timeInterval = setInterval(() => {
-    setTime();
-  }, 1000);
 
-  function setTime() {
-    time.value = new Date().toLocaleTimeString("en-US", {
-      timeZone: prop.timezone,
-    });
-  }
+  const currentTime = ref(null);
+  let timeInterval;
+
+  onMounted(() => {
+    timeInterval = setInterval(() => {
+      currentTime.value = getFormattedTime();
+    }, 1000);
+    function getFormattedTime() {
+      return new Date().toLocaleTimeString("en-US", {
+        timeZone: props.timezone,
+      });
+    }
+  });
+
   onBeforeUnmount(() => {
     clearInterval(timeInterval);
   });
 </script>
+
 <style></style>

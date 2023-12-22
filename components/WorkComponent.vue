@@ -2,14 +2,22 @@
   <div class="col-span-1" :class="outputClass">
     <div>
       <NuxtLink
+        no-underline-effect
         target="_blank"
         :href="props.link"
         class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
-        ><NuxtImg
-          class="min-h-[600] w-screen min-w-[800] duration-700 ease-in-out group-hover:scale-105"
-          :src="props.imgDirectory"
-          :alt="props.imgAltName"
-      /></NuxtLink>
+      >
+        <video class="w-screen max-w-full" autoplay muted loop>
+          <source
+            src="https://res.cloudinary.com/djsa72jl/video/upload/v1703230324/smshub_display.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://res.cloudinary.com/djsa72jl/video/upload/v1703230324/smshub_display.webm"
+            type="video/webm"
+          />
+        </video>
+      </NuxtLink>
       <div class="mt-4">
         <div class="mb-3 flex space-x-2">
           <p
@@ -29,7 +37,9 @@
           >
             {{ props.projectName }}
           </h3>
-          <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
+          <p
+            class="text-body-2 text-primary-400 font-light capitalize 2xl:text-4xl"
+          >
             {{ props.category }}
           </p>
         </div>
