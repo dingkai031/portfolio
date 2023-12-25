@@ -22,7 +22,7 @@ interface work {
   tags: string[];
   category: CategoryEnum;
   link: string;
-  classes?: string[];
+  classes?: string;
   imgAltName: string;
 }
 
@@ -158,7 +158,7 @@ const pageDatas: pageDataType = {
       tags: ["PHP", "Bootstrap 5", "JavaScript"],
       category: CategoryEnum.FS,
       link: "https://smshub360.com",
-      classes: ["pt-0", "md:col-span-7", "md:pt-10"],
+      classes: "pt-0 md:col-span-7 md:pt-10",
       imgAltName: "SMShub landing page mockup",
     },
     {
@@ -177,7 +177,7 @@ const pageDatas: pageDataType = {
       tags: ["HTML", "Bootstrap 5", "JavaScript"],
       category: CategoryEnum.FE,
       link: "https://xlwinmedia.com",
-      classes: ["pt-0", "md:col-span-5", "md:pt-20"],
+      classes: "pt-0 md:col-span-5 md:pt-20",
       imgAltName: "XLWIN MEDIA landing page mockup",
     },
     {
@@ -196,7 +196,7 @@ const pageDatas: pageDataType = {
       tags: ["HTML", "Bootstrap 5", "JavaScript"],
       category: CategoryEnum.FE,
       link: "https://sg-cuppatea.com",
-      classes: ["h-fit", "pt-0", "md:col-span-8", "md:pt-20"],
+      classes: "h-fit pt-0 md:col-span-8 md:pt-20",
       imgAltName: "SG CUPPATEA landing page mockup",
     },
     {
@@ -215,7 +215,7 @@ const pageDatas: pageDataType = {
       tags: ["PHP", "Bootstrap 5", "JavaScript"],
       category: CategoryEnum.FS,
       link: "https://my-iqtest.com",
-      classes: ["h-fit", "md:col-span-4"],
+      classes: "h-fit md:col-span-4",
       imgAltName: "MY-IQTEST landing page mockup",
     },
   ],

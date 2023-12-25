@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-1" :class="outputClass">
+  <div class="col-span-1" :class="props.classes">
     <div>
       <NuxtLink
         no-underline-effect
@@ -55,15 +55,12 @@
     tags: Array,
     category: String,
     link: String,
-    classes: Array,
+    classes: String,
     imgAltName: String,
   });
 
   const outputTags = computed(() => {
     return props.tags.join(" • ");
-  });
-  const outputClass = computed(() => {
-    return props.classes.join(" ");
   });
 </script>
 <style lang=""></style>
