@@ -110,7 +110,7 @@
                   interfaces with:
                 </p>
                 <ul class="mb-3 flex flex-wrap gap-3">
-                  <li v-for="tool in frontEndDigitalToolbox">
+                  <li v-for="tool in digitalToolBox.fe">
                     <Icon
                       class="tooltips-blobity h-6 w-6 text-black transition-colors duration-300 ease-in-out lg:h-10 lg:w-10"
                       :class="tool.class"
@@ -125,7 +125,7 @@
                 using:
               </p>
               <ul class="flex flex-wrap gap-3">
-                <li v-for="tool in backEndDigitalToolbox">
+                <li v-for="tool in digitalToolBox.be">
                   <Icon
                     class="tooltips-blobity h-6 w-6 text-black transition-colors duration-300 ease-in-out lg:h-10 lg:w-10"
                     :class="tool.class"
@@ -156,166 +156,6 @@
           :imgAltName="work.imgAltName"
           :videos="work.videos"
         />
-        <!-- <div class="col-span-1 pt-0 md:col-span-7 md:pt-10">
-          <div>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://mementostudio.netlify.app/"
-              class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
-              ><img
-                class="w-screen duration-700 ease-in-out group-hover:scale-105"
-                src="/img/portfolio/smshub/Scene-1.jpg"
-                alt="memento landing page mockup"
-                width="800"
-                height="600"
-            /></a>
-            <div class="mt-4">
-              <div class="mb-3 flex space-x-2">
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  2023
-                </p>
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  HTML • TailwindCSS • JavaScript
-                </p>
-              </div>
-              <div class="2xl:space-y-3">
-                <h3
-                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
-                >
-                  memento studio landing page
-                </h3>
-                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
-                  Frontend Development
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-span-1 pt-0 md:col-span-5 md:pt-44">
-          <div>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://realbusinessaccountants.netlify.app"
-              class="group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
-              ><img
-                class="w-screen duration-700 ease-in-out group-hover:scale-105"
-                src="/img/portfolio/smshub/Scene-1.jpg"
-                alt="real business accountant project mockup"
-                width="800"
-                height="600"
-            /></a>
-            <div class="mt-4">
-              <div class="mb-3 flex space-x-2">
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  2023
-                </p>
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  HTML • CSS • JavaScript • Figma
-                </p>
-              </div>
-              <div class="2xl:space-y-3">
-                <h3
-                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
-                >
-                  real business accountants
-                </h3>
-                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
-                  Web Design • Frontend Development
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-span-1 h-fit pt-0 md:col-span-8 md:pt-20">
-          <div>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://godaddyuiclone.netlify.app"
-              class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
-              ><img
-                class="w-screen duration-700 ease-in-out group-hover:scale-105"
-                src="/img/portfolio/smshub/Scene-1.jpg"
-                alt="godaddy clone page mockup"
-                width="800"
-                height="600"
-            /></a>
-            <div class="mt-4">
-              <div class="mb-3 flex space-x-2">
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  2023
-                </p>
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  HTML • TailwindCSS • JavaScript
-                </p>
-              </div>
-              <div class="2xl:space-y-3">
-                <h3
-                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
-                >
-                  GODADDY LANDING PAGE CLONE
-                </h3>
-                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
-                  Frontend Development
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-span-1 h-fit md:col-span-4">
-          <div>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://sunnysidechallenge.netlify.app"
-              class="img group inline-block overflow-hidden duration-200 ease-linear hover:rounded-3xl"
-              ><img
-                class="w-screen duration-700 ease-in-out group-hover:scale-105"
-                src="/img/portfolio/smshub/Scene-1.jpg"
-                alt="sunnyside project mockup"
-                width="800"
-                height="600"
-            /></a>
-            <div class="mt-4">
-              <div class="mb-3 flex space-x-2">
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  2022
-                </p>
-                <p
-                  class="border-secondary-600 text-secondary-600 text-body-4 flex items-center justify-center rounded-full border bg-transparent px-4 py-1 2xl:text-3xl"
-                >
-                  HTML • TailwindCSS • JavaScript
-                </p>
-              </div>
-              <div class="2xl:space-y-3">
-                <h3
-                  class="text-works-title text-primary-200 font-medium uppercase 2xl:text-5xl"
-                >
-                  SUNNYSIDE LANDING PAGE
-                </h3>
-                <p class="text-body-2 text-primary-400 font-light 2xl:text-4xl">
-                  Frontend Development
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </section>
     <section class="header-spacing px-4 pt-8 md:min-h-screen" id="contact">
@@ -449,6 +289,17 @@
   </main-layout>
 </template>
 <script setup>
+  useSeoMeta({
+    title: "Fullstack Web Developer - Yovan Julio Adam",
+    ogTitle: "Fullstack Web Developer - Yovan Julio Adam",
+    description:
+      "Experienced full-stack developer proficient in JavaScript & PHP, dedicated to building dynamic, innovative web solutions",
+    ogDescription:
+      "Experienced full-stack developer proficient in JavaScript & PHP, dedicated to building dynamic, innovative web solutions",
+    ogType: "website",
+    twitterCard: "summary",
+  });
+
   import { onMounted } from "vue";
   import MainLayout from "@/layouts/MainLayout.vue";
   import LoadingIndicator from "@/components/LoadingIndicator.vue";
@@ -461,7 +312,8 @@
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  const { email, socials, timezone, location, works } = pageDatas;
+  const { email, socials, timezone, location, works, digitalToolBox } =
+    pageDatas;
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: "none" });
@@ -501,82 +353,6 @@
       snap: [0, 0.5, 1],
     });
   });
-
-  const frontEndDigitalToolbox = [
-    {
-      iconName: "devicon-plain:bootstrap",
-      name: "Bootstrap 5",
-      class: "hover:text-[#7e13f8]",
-    },
-    {
-      iconName: "mdi:tailwind",
-      name: "Tailwindcss",
-      class: "hover:text-[#19b2b9]",
-    },
-    {
-      iconName: "mdi:vuejs",
-      name: "Vue 3",
-      class: "hover:text-[#41b883]",
-    },
-    {
-      iconName: "mdi:nuxt",
-      name: "Nuxt 3",
-      class: "hover:text-[#41b883]",
-    },
-    {
-      iconName: "devicon-plain:postcss",
-      name: "Postcss",
-      class: "hover:text-[#c33331]",
-    },
-    {
-      iconName: "mdi:babel",
-      name: "BabelJS",
-      class: "hover:text-[#c3aa40]",
-    },
-    {
-      iconName: "cib:greensock",
-      name: "GSAP",
-      class: "hover:text-[#8ec846]",
-    },
-  ];
-
-  const backEndDigitalToolbox = [
-    {
-      iconName: "mdi:nodejs",
-      name: "NodeJs",
-      class: "hover:text-[#83cd29]",
-    },
-    {
-      iconName: "skill-icons:expressjs-light",
-      name: "ExpressJs",
-      class: "",
-    },
-    {
-      iconName: "mdi:aws",
-      name: "AWS Cloud",
-      class: "hover:text-[#ff9900]",
-    },
-    {
-      iconName: "mdi:language-php",
-      name: "PHP",
-      class: "hover:text-[#6181b6]",
-    },
-    {
-      iconName: "teenyicons:mongodb-solid",
-      name: "MongoDB",
-      class: "hover:text-[#01ec64]",
-    },
-    {
-      iconName: "tabler:brand-mysql",
-      name: "MySQL",
-      class: "hover:text-[#00738d]",
-    },
-    {
-      iconName: "logos:jwt-icon",
-      name: "JWT",
-      class: "",
-    },
-  ];
 
   function isPageLoaded() {
     const bgTitles = gsap.utils.toArray(".background-title h1");

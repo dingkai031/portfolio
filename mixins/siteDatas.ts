@@ -4,18 +4,18 @@ enum CategoryEnum {
   FS = "fullstack development",
 }
 
-type social = {
+interface social {
   name: string;
   logo: string;
   link: string;
-};
+}
 
-type video = {
+interface video {
   link: string;
   type: string;
-};
+}
 
-type work = {
+interface work {
   videos: video[];
   yearStarted: number;
   projectName: string;
@@ -24,18 +24,104 @@ type work = {
   link: string;
   classes?: string[];
   imgAltName: string;
-};
+}
+
+interface toolBox {
+  iconName: string;
+  name: string;
+  class: string;
+}
 
 interface pageDataType {
-  email: string;
   socials: social[];
+  works: work[];
+  digitalToolBox: {
+    fe: toolBox[];
+    be: toolBox[];
+  };
+  email: string;
   timezone: string;
   location: string;
-  works: work[];
 }
 
 const pageDatas: pageDataType = {
   email: "yovanjulioadam@gmail.com",
+  digitalToolBox: {
+    fe: [
+      {
+        iconName: "devicon-plain:bootstrap",
+        name: "Bootstrap 5",
+        class: "hover:text-[#7e13f8]",
+      },
+      {
+        iconName: "mdi:tailwind",
+        name: "Tailwindcss",
+        class: "hover:text-[#19b2b9]",
+      },
+      {
+        iconName: "mdi:vuejs",
+        name: "Vue 3",
+        class: "hover:text-[#41b883]",
+      },
+      {
+        iconName: "mdi:nuxt",
+        name: "Nuxt 3",
+        class: "hover:text-[#41b883]",
+      },
+      {
+        iconName: "devicon-plain:postcss",
+        name: "Postcss",
+        class: "hover:text-[#c33331]",
+      },
+      {
+        iconName: "mdi:babel",
+        name: "BabelJS",
+        class: "hover:text-[#c3aa40]",
+      },
+      {
+        iconName: "cib:greensock",
+        name: "GSAP",
+        class: "hover:text-[#8ec846]",
+      },
+    ],
+    be: [
+      {
+        iconName: "mdi:nodejs",
+        name: "NodeJs",
+        class: "hover:text-[#83cd29]",
+      },
+      {
+        iconName: "skill-icons:expressjs-light",
+        name: "ExpressJs",
+        class: "",
+      },
+      {
+        iconName: "mdi:aws",
+        name: "AWS Cloud",
+        class: "hover:text-[#ff9900]",
+      },
+      {
+        iconName: "mdi:language-php",
+        name: "PHP",
+        class: "hover:text-[#6181b6]",
+      },
+      {
+        iconName: "teenyicons:mongodb-solid",
+        name: "MongoDB",
+        class: "hover:text-[#01ec64]",
+      },
+      {
+        iconName: "tabler:brand-mysql",
+        name: "MySQL",
+        class: "hover:text-[#00738d]",
+      },
+      {
+        iconName: "logos:jwt-icon",
+        name: "JWT",
+        class: "",
+      },
+    ],
+  },
   socials: [
     {
       name: "linkedin",
