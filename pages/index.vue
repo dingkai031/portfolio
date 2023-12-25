@@ -47,8 +47,11 @@
         </div>
       </div>
     </section>
-    <section class="header-spacing px-4 pt-8 md:min-h-screen" id="about">
-      <div class="grid- grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
+    <section
+      class="header-spacing px-4 pt-8 md:min-h-screen md:px-12"
+      id="about"
+    >
+      <div class="grid w-full grid-cols-1 gap-2 md:grid-cols-2 md:gap-4">
         <div class="max-md:order-2">
           <NuxtImg
             src="/img/about-me.jpg"
@@ -139,11 +142,24 @@
         </div>
       </div>
     </section>
-    <section class="header-spacing px-4 pt-8 md:min-h-screen" id="works">
-      <h2 class="mb-6 text-center text-xl font-bold md:text-3xl xl:text-5xl">
+    <section
+      class="header-spacing px-4 pt-8 md:min-h-screen md:px-12"
+      id="works"
+    >
+      <h2 class="mb-6 text-xl font-bold md:text-3xl xl:text-5xl">
         Yovan's works
       </h2>
-      <div class="grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12 md:px-12">
+      <p
+        class="text-heading-contact max-w-lg font-semibold leading-tight 2xl:max-w-3xl 2xl:text-7xl"
+      >
+        Feel free to see all ideas
+      </p>
+      <p
+        class="text-heading-contact max-w-lg font-semibold leading-tight 2xl:max-w-3xl 2xl:text-7xl"
+      >
+        coming to live.
+      </p>
+      <div class="grid grid-cols-1 gap-16 gap-y-10 md:grid-cols-12">
         <WorkComponent
           v-for="(work, item) in works"
           :key="item"
@@ -158,13 +174,14 @@
         />
       </div>
     </section>
-    <section class="header-spacing px-4 pt-8 md:min-h-screen" id="contact">
-      <h2
-        class="mb-6 text-center text-xl font-bold md:mb-10 md:text-3xl xl:text-5xl"
-      >
+    <section
+      class="header-spacing px-4 pt-8 md:min-h-screen md:px-12"
+      id="contact"
+    >
+      <h2 class="mb-6 text-xl font-bold md:mb-10 md:text-3xl xl:text-5xl">
         Yovan's Contact
       </h2>
-      <div class="flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
+      <div class="flex flex-col gap-20 md:grid md:grid-cols-6">
         <div class="col-span-4">
           <div class="mb-6">
             <p
@@ -356,6 +373,7 @@
   });
 
   function isPageLoaded() {
+    ScrollTrigger.refresh();
     const bgTitles = gsap.utils.toArray(".background-title h1");
     bgTitles.forEach((bgTitle) => {
       gsap.fromTo(

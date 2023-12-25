@@ -56,15 +56,12 @@
               onComplete: () => {
                 const body = document.querySelector("body");
                 body.classList.remove("overflow-hidden");
+                emit("loaded");
               },
             });
           }, 1);
         },
       });
-
-      // setTimeout(() => {
-      //   emit("loaded");
-      // }, 1000);
     });
     function loadingInterval() {
       return new Promise((resolve) => {
