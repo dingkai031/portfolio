@@ -300,6 +300,12 @@
     twitterCard: "summary",
   });
 
+  useHead({
+    bodyAttrs: {
+      class: ["overflow-hidden"],
+    },
+  });
+
   import { onMounted } from "vue";
   import MainLayout from "@/layouts/MainLayout.vue";
   import LoadingIndicator from "@/components/LoadingIndicator.vue";
@@ -321,11 +327,6 @@
   gsap.ticker.lagSmoothing(0);
 
   onMounted(() => {
-    const lenis = new Lenis();
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
     gsapTl
       .to("#about-1", {
         opacity: 0,
@@ -368,6 +369,11 @@
           ease: "steps(9)",
         }
       );
+    });
+    const lenis = new Lenis();
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
     });
   }
 </script>

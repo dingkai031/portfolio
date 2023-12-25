@@ -34,7 +34,11 @@
             class="text-works-title text-primary-200 flex items-center font-medium uppercase 2xl:text-5xl"
           >
             {{ props.projectName }}
-            <Icon class="ml-3" size="0.7em" name="ri:external-link-fill" />
+            <Icon
+              class="ml-1 md:ml-3"
+              size="1em"
+              name="ri:external-link-fill"
+            />
           </h3>
           <p
             class="text-body-2 text-primary-400 font-light capitalize 2xl:text-4xl"

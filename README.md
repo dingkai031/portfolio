@@ -36,4 +36,5 @@ npm run preview
 
 ## Note
 
-When using dynamic class with tailwindcss, make sure to safelisting the class in tailwind config.
+1. When using dynamic class with tailwindcss, make sure to safelisting the class in tailwind config.
+2. Random text effect source link : [link](https://www.codepel.com/animation/javascript-text-scramble-effect)

@@ -27,12 +27,6 @@
         </div>
         <CustomButton text="contact." @click="customScrollTo('#contact')" />
       </nav>
-      <nuxt-link
-        no-underline-effect
-        class="rounded-full bg-black px-6 py-2 text-lg text-white transition-colors duration-300 ease-in-out hover:bg-white hover:text-black max-md:me-3 max-md:ms-auto md:hidden"
-        :to="{ path: '/', hash: '#section' }"
-        >contact.</nuxt-link
-      >
       <HamburgerIcon
         data-no-blobity
         class="flex md:hidden"
