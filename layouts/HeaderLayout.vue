@@ -9,23 +9,32 @@
         >YJA</nuxt-link
       >
       <nav
-        class="flex max-md:fixed max-md:inset-0 max-md:-z-10 max-md:w-full max-md:flex-col max-md:gap-8 max-md:px-8 max-md:pt-[76px] md:space-x-3"
+        class="flex max-md:fixed max-md:inset-0 max-md:-z-10 max-md:w-full max-md:flex-col max-md:px-8 max-md:pt-[76px] md:space-x-3"
         :class="{
+          'max-md:translate-x-1/3': !opened,
+          'max-md:opacity-0': !opened,
           'max-md:hidden': !opened,
           'bg-glass': opened,
         }"
+        id="nav-wrapper"
       >
-        <div class="flex items-center">
-          <nuxt-link class="max-md:text-6xl" @click="customScrollTo('#about')"
+        <div class="flex gap-8 max-md:flex-col md:items-center">
+          <nuxt-link
+            class="nav-list max-md:text-6xl"
+            @click="customScrollTo('#about')"
             >about.</nuxt-link
           >
-        </div>
-        <div class="flex items-center">
-          <nuxt-link class="max-md:text-6xl" @click="customScrollTo('#works')"
+          <nuxt-link
+            class="nav-list max-md:text-6xl"
+            @click="customScrollTo('#works')"
             >works.</nuxt-link
           >
+          <nuxt-link
+            class="nav-list max-md:text-6xl"
+            @click="customScrollTo('#contact')"
+            >contact.</nuxt-link
+          >
         </div>
-        <CustomButton text="contact." @click="customScrollTo('#contact')" />
       </nav>
       <HamburgerIcon
         data-no-blobity
@@ -41,7 +50,7 @@
   import HamburgerIcon from "~/components/HamburgerIcon.vue";
   import { gsap } from "gsap";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-  import CustomButton from "~/components/ButtonComponent.vue";
+  import { onMounted, onBeforeUnmount } from "vue";
 
   gsap.registerPlugin(ScrollToPlugin);
 
@@ -49,18 +58,68 @@
   const animating = ref(false);
   const animatingTimeout = ref(null);
 
+  onMounted(() => {
+    window.addEventListener("resize", windowResizeFunction);
+  });
+
+  onBeforeUnmount(() => {
+    removeEventListener("resize", windowResizeFunction);
+  });
+
+  function windowResizeFunction(e) {
+    if (opened.value && e.target.innerWidth > 767) {
+      toggleOpen();
+    }
+  }
+
   function customScrollTo(elmId) {
-    if (opened.value) opened.value = false;
-    gsap.to(window, { duration: 1.5, scrollTo: elmId, ease: "power3.inOut" });
+    toggleOpen();
+    if (!opened.value) {
+      gsap.to(window, { duration: 1.5, scrollTo: elmId, ease: "power3.inOut" });
+    }
   }
   function toggleOpen() {
     if (!animating.value) {
+      const timeline = gsap.timeline();
+      const listElement = gsap.utils.toArray(".nav-list");
+      if (!opened.value) {
+        timeline.to("#nav-wrapper", {
+          xPercent: 0,
+          duration: 0.1,
+          opacity: 1,
+          display: "flex",
+        });
+        listElement.forEach((elm) => {
+          timeline.fromTo(
+            elm,
+            {
+              yPercent: 100,
+              opacity: 0,
+            },
+            {
+              duration: 0.2,
+              yPercent: 0,
+              opacity: 1,
+            }
+          );
+        });
+      } else {
+        timeline.to("#nav-wrapper", {
+          xPercent: 33.33,
+          duration: 0.2,
+          opacity: 0,
+          display: "none",
+          onComplete: () => {
+            document.querySelector("#nav-wrapper").removeAttribute("style");
+          },
+        });
+      }
       animating.value = true;
       opened.value = !opened.value;
       animatingTimeout.value = setTimeout(() => {
         animating.value = false;
         clearTimeout(animatingTimeout.value);
-      }, 601);
+      }, 700);
     }
   }
 </script>
