@@ -306,6 +306,7 @@
   </main-layout>
 </template>
 <script setup>
+  const runtimeConfig = useRuntimeConfig();
   useSeoMeta({
     title: "Fullstack Web Developer - Yovan Julio Adam",
     ogTitle: "Fullstack Web Developer - Yovan Julio Adam",
@@ -314,7 +315,20 @@
     ogDescription:
       "Experienced full-stack developer proficient in JavaScript & PHP, dedicated to building dynamic, innovative web solutions",
     ogType: "website",
+    ogImage: {
+      url: `${runtimeConfig.public.baseUrl}/og-image.png`,
+      secureUrl: `${runtimeConfig.public.baseUrl}/og-image.png`,
+      type: "image/png",
+      width: "2097",
+      height: "1101",
+    },
     twitterCard: "summary",
+    twitterTitle: "Fullstack Web Developer - Yovan Julio Adam",
+    twitterDescription:
+      "Experienced full-stack developer proficient in JavaScript & PHP, dedicated to building dynamic, innovative web solutions",
+    twitterImage: {
+      url: `${runtimeConfig.public.baseUrl}/og-image.png`,
+    },
   });
 
   useHead({
