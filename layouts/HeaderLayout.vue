@@ -50,13 +50,19 @@
   import HamburgerIcon from "~/components/HamburgerIcon.vue";
   import { gsap } from "gsap";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-  import { onMounted, onBeforeUnmount } from "vue";
+  import { onMounted, onBeforeUnmount, watch } from "vue";
 
   gsap.registerPlugin(ScrollToPlugin);
 
   const opened = ref(false);
   const animating = ref(false);
   const animatingTimeout = ref(null);
+
+  const screenWidth = ref(0);
+
+  watch(screenWidth, (newWidth) => {
+    if (opened.value && newWidth > 767) toggleOpen();
+  });
 
   onMounted(() => {
     window.addEventListener("resize", windowResizeFunction);
@@ -67,16 +73,20 @@
   });
 
   function windowResizeFunction(e) {
-    if (opened.value && e.target.innerWidth > 767) {
-      toggleOpen();
-    }
+    screenWidth.value = e.target.innerWidth;
   }
 
   function customScrollTo(elmId) {
-    toggleOpen();
-    if (!opened.value) {
-      gsap.to(window, { duration: 1.5, scrollTo: elmId, ease: "power3.inOut" });
-    }
+    if (opened.value && screenWidth.value < 768) toggleOpen();
+    setTimeout(() => {
+      if (!opened.value) {
+        gsap.to(window, {
+          duration: 1.5,
+          scrollTo: elmId,
+          ease: "power3.inOut",
+        });
+      }
+    }, 1);
   }
   function toggleOpen() {
     if (!animating.value) {
